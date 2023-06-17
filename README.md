@@ -8,7 +8,7 @@ You can add notes on your web
 ## Author
 
 **Alezuna Nadhif** 
-* *Initial work* - [alezunanadhif/personal-blog-laravel](https://github.com/alezunanadhif/ID-Notes)
+* *Initial work* - [alezunanadhif/ID-Notes](https://github.com/alezunanadhif/ID-Notes)
 * *My professional profile on* [LinkedIn](https://www.linkedin.com/in/alezunanadhif/)
 
 ___
