@@ -9,10 +9,9 @@
     --black: #080808;
     --shadow: 0 15px 25px 0 #0000000c;
     --none: #00000000;
-}
-
-#hl {
-    text-decoration: underline var(--primary);
+    --big-font-size: 2rem;
+    --normal-font-size: 1.2rem;
+    --smaller-font-size: .75rem;
 }
 
 * {
@@ -44,7 +43,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.1em 3.3em;
+    padding: 1.1rem 3.3em;
     background-color: white;
     box-shadow: var(--shadow);
 }
@@ -62,35 +61,33 @@ nav {
     gap: 0.5em;
 }
 
-#btn {
-    padding: 0.3em 1em;
-    font-size: 1em;
-    font-weight: 600;
-    outline: none;
-    height: fit-content;
-    width: fit-content;
-    background-color: var(--none);
-    border: 2px solid var(--primary);
-    border-radius: 0.5em;
-    transition: 200ms;
-    text-decoration: none;
+@media screen and (max-width: 768px) {
+    
+    nav {
+        padding: 0.6em 1.7em;
+    }
+
+    #greeting {
+        font-size: var(--normal-font-size);
+    }
+
 }
 
-#btn:hover {
-    background-color: var(--primary);
-    color: white;
-    transition: 200ms;
-}
+@media screen and (max-width: 360px) {
+    
+    nav {
+        padding: 0.3em 0.8em;
+    }
 
-#banner {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1em;
-    height: 34em;
-    background-color: var(--white);
-}
+    #greeting {
+        font-size: var(--smaller-font-size);
+    }
 
-#banner #icon {
-    height: 24em;
+    .button-top {
+        height: 34px;
+    }
+    .button-top p {
+        font-size: var(--smaller-font-size);
+    }
+
 }
