@@ -1,8 +1,8 @@
-# Personal Blog Laravel
+# ID-Notes
 
-> just a simple personal blog web
+> take notes without hassle, save your notes on the web, and don't forget it's all free for you!
 
-You can add some information on your own web server
+You can add notes on your web
 
 ---
 ## Author
