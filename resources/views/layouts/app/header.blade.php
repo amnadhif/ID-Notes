@@ -33,7 +33,7 @@
                 <use xlink:href="#bootstrap"></use>
             </svg>
             @if (Auth::check())
-                <span class="fs-4">ID-Notes, kak {{ Auth::user()->name }}</span>
+                <span class="fs-4">ID-Notes, {{ Auth::user()->name }}</span>
             @else
                 <span class="fs-4">ID-Notes</span>
             @endif

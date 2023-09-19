@@ -11,6 +11,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $notes->title }}</h5>
                                 <p class="card-text">{{ $notes->note }}</p>
+                                <p class="card-text">Created at: {{ $notes->created_at->format('Y-m-d H:i:s') }}</p>
                                 <form action="{{ url("note/$notes->id") }}" method="post">
                                 @csrf
                                 @method("delete")

@@ -10,7 +10,7 @@
         </div>
         <div class="mb-3">
             <label for="note" class="form-label"><h3>Note</h3></label>
-            <input class="form-control" placeholder="type your note here" type="text" id="note" name="note" required>
+            <textarea class="form-control" placeholder="type your note here" type="text" id="note" name="note" style="height: 100px" required></textarea>
         </div>
         <button type="submit" class="btn btn-outline-success">+ Create a note</button>
     </form>
