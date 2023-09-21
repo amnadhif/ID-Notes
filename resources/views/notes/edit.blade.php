@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Edit Postingan')
+@section('title', 'Edit Note')
 @section('content')
     <form method="post" action="{{ url("note/$note->id") }}">
         @method('patch')
