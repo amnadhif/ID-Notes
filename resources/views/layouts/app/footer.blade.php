@@ -11,7 +11,7 @@
 
         <ul class="nav col-md-4 justify-content-end">
             <li class="ms-3">
-                <a class="text-body-secondary" href="https://instagram.com/alezunadhif_" target="_blank">
+                <a class="text-body-secondary" href="https://instagram.com/alezunadhif" target="_blank">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </li>
