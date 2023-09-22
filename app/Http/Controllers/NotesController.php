@@ -19,13 +19,10 @@ class NotesController extends Controller
             return redirect('/');
         }
 
-        $note = Notes::get();
+        $userId = Auth::user()->id;
+        $notes = Notes::where('user_id', $userId)->get();
 
-        $note = [
-            'note' => $note
-        ];
-
-        return view('notes.index', $note);
+        return view('notes.index', compact('notes'));
     }
 
     /**
@@ -51,10 +48,12 @@ class NotesController extends Controller
 
         $title = $request->input('title');
         $note = $request->input('note');
+        $userId = Auth::user()->id;
 
         Notes::create([
             'title' => $title,
             'note' => $note,
+            'user_id' => $userId,
         ]);
 
         return redirect('/note');
@@ -81,13 +80,15 @@ class NotesController extends Controller
             return redirect('/');
         }
 
-        $selected = Notes::where('id', $id)->first();
-    
-        $note = [
-            'note' => $selected
-        ];
+        $userId = Auth::user()->id;
 
-        return view('notes.edit', $note);
+        $notes = Notes::where('id', $id)->where('user_id', $userId)->first();
+
+        if (!$notes) {
+            return redirect('/note');
+        }
+
+        return view('notes.edit', compact('notes'));
     }
 
     /**
@@ -121,7 +122,9 @@ class NotesController extends Controller
             return redirect('/');
         }
 
-        Notes::where('id', $id)->delete();
+        $userId = Auth::user()->id;
+
+        Notes::where('id', $id)->where('user_id', $userId)->delete();
 
         return redirect('/note');
     }
