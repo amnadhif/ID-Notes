@@ -11,7 +11,7 @@
         </ul>
         <ul class="nav">
             @if (Auth::check())
-                <li class="nav-item"><a href="3"
+                <li class="nav-item"><a href="#"
                         class="nav-link link-body-emphasis px-2">{{ Auth::user()->name }}</a></li>
                 <li class="nav-item"><a href="{{ url('/logout') }}" class="nav-link link-body-emphasis px-2">Logout</a>
                 </li>
