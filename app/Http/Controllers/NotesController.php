@@ -21,6 +21,7 @@ class NotesController extends Controller
 
         $userId = Auth::user()->id;
         $notes = Notes::where('user_id', $userId)->get();
+        $notes = $notes->sortByDesc('created_at');
 
         return view('notes.index', compact('notes'));
     }
