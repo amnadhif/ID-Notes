@@ -20,18 +20,21 @@ class AuthController extends Controller
     }
 
     public function authenticate(Request $request)
-    {
-        if (Auth::check()) {
-            return redirect('/note');
-        }
-
-        $credential = $request->only('email', 'password');
-        if (Auth::attempt($credential)) {
-            return redirect('note');
-        } else {
-            return redirect('login')->with('error_message', 'wrong email or password');
-        }
+{
+    if (Auth::check()) {
+        return redirect('/note');
     }
+
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        return redirect('note');
+    } else {
+        return redirect('login')
+            ->withInput($request->only('email'))
+            ->with('error_message', 'wrong email or password');
+    }
+}
 
     public function logout()
     {

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,7 @@ Route::post('/note', [NotesController::class, 'store']);
 Route::get('/note/{id}/edit', [NotesController::class, 'edit']);
 Route::patch('/note/{id}', [NotesController::class, 'update']);
 Route::delete('/note/{id}', [NotesController::class, 'destroy']);
+
+// Profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
