@@ -42,9 +42,10 @@
             @endif
         </a>
         @if (Auth::check())
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-none d-lg-block" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 d-none d-lg-block" role="search" method="GET" action="{{ route('notes.search') }}">
+    <input type="search" name="query" class="form-control" placeholder="Search..." aria-label="Search">
+</form>
+
         @else
             <form action="" class="display-none"></form>
         @endif

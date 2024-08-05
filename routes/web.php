@@ -31,6 +31,7 @@ Route::post('/note', [NotesController::class, 'store']);
 Route::get('/note/{id}/edit', [NotesController::class, 'edit']);
 Route::patch('/note/{id}', [NotesController::class, 'update']);
 Route::delete('/note/{id}', [NotesController::class, 'destroy']);
+Route::get('/notes/search', [NotesController::class, 'search'])->name('notes.search');
 
 // Profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

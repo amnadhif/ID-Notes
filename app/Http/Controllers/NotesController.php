@@ -129,4 +129,22 @@ class NotesController extends Controller
 
         return redirect('/note');
     }
+
+    // Metode untuk pencarian
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Validasi query pencarian
+        $request->validate([
+            'query' => 'required|string|min:3',
+        ]);
+
+        // Cari catatan berdasarkan query
+        $notes = Notes::where('title', 'like', "%{$query}%")
+        ->orWhere('note', 'like', "%{$query}%")
+        ->get();
+
+        return view('notes.index', compact('notes'));
+    }
 }

@@ -10,8 +10,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ $note->title }}</h5>
-                        <!-- Tampilkan ringkasan catatan dengan batasan panjang teks -->
-                        <p class="card-text text-truncate" id="note-{{ $note->id }}">
+                        <!-- Tampilkan hanya dua baris pertama dari catatan -->
+                        <p class="card-text">
                             {!! nl2br(e(Str::limit($note->note, 100))) !!}
                         </p>
                         <p class="fs-6 text-secondary">
