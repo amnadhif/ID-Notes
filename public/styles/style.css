@@ -62,7 +62,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    
+
     nav {
         padding: 0.6em 1.7em;
     }
@@ -74,7 +74,7 @@ nav {
 }
 
 @media screen and (max-width: 360px) {
-    
+
     nav {
         padding: 0.3em 0.8em;
     }
@@ -86,8 +86,18 @@ nav {
     .button-top {
         height: 34px;
     }
+
     .button-top p {
         font-size: var(--smaller-font-size);
     }
 
+}
+
+.card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 3em;
 }
