@@ -6,7 +6,7 @@
         <div class="card">
             <h3 class="text-center mt-4">Login</h3>
             <div class="card-body">
-                <form method="post" action="{{ url('login')}}">
+                <form method="post" action="{{ url('login') }}">
                     @csrf
                     @if(session()->has('error_message'))
                     <div class="alert alert-danger">{{ session()->get('error_message')}}</div>

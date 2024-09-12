@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -15,27 +16,30 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request)
-{
-    $user = Auth::user();
-    
-    // Validasi input, pastikan hanya memvalidasi password jika diisi
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-        'password' => 'nullable|string|min:8|confirmed',
-    ]);
+    {
+        $user = Auth::user();
 
-    // Update nama dan email
-    $user->name = $request->name;
-    $user->email = $request->email;
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6',
+        ]);
 
-    // Update password jika diisi
-    if ($request->filled('password')) {
-        $user->password = bcrypt($request->password);
+        // Update nama dan email
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        // Update password jika diisi
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        // Simpan perubahan dan periksa apakah berhasil
+        if ($user->save()) {
+            return redirect()->back()->with('success', 'Profile updated successfully');
+        } else {
+            return redirect()->back()->with('error', 'Failed to update profile. Please try again.');
+        }
     }
-
-    $user->save();
-
-    return redirect()->back()->with('success', 'Profile updated successfully');
-}
 }
