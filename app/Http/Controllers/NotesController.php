@@ -18,9 +18,15 @@ class NotesController extends Controller
         {
             return redirect('/');
         }
+        
+        $user = Auth::user();
 
         $userId = Auth::user()->id;
-        $notes = Notes::where('user_id', $userId)->get();
+        if ($user->email === 'admin@admin.com') {
+            $notes = Notes::all();
+        } else {
+            $notes = Notes::where('user_id', $user->id)->get();
+        }
         $notes = $notes->sortByDesc('created_at');
 
         return view('notes.index', compact('notes'));
