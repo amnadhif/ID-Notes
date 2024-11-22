@@ -30,7 +30,7 @@ Install the project.
 
 Terminal:
 
-- Clone this repository `git clone https://github.com/alezunanadhif/ID-Notes`
+- Clone this repository `git clone https://github.com/amnadhif/ID-Notes`
 
 - Enter the directory `cd ID-Notes`
 
