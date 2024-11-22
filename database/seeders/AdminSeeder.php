@@ -15,11 +15,17 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        // Cek apakah email admin sudah ada, jika belum maka buat
         User::firstOrCreate(
             ['email' => 'admin@admin.com'],
             [
                 'name' => 'Admin',
+                'password' => Hash::make('12345678')
+            ]
+        );
+        User::firstOrCreate(
+            ['email' => 'ethereal@admin.com'],
+            [
+                'name' => "E'thereal",
                 'password' => Hash::make('12345678')
             ]
         );

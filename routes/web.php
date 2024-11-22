@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NotesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
@@ -17,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 // User
-Route::get('login', [AuthController::class, 'login']);
-Route::post('login', [AuthController::class, 'authenticate']);
-Route::get('logout', [AuthController::class, 'logout']);
-Route::get('register', [AuthController::class, 'register_form'])->name('register');
-Route::post('register', [AuthController::class, 'register']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/register', [AuthController::class, 'register_form'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+// Admin
+Route::get('/admin', [AdminController::class, 'index']);
 
 // Notes
 Route::get('/', [NotesController::class, 'show']);

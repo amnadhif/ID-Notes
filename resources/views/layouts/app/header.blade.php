@@ -2,12 +2,18 @@
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
             @if (Auth::check())
-                <li class="nav-item"><a href="{{ url('/note') }}" class="nav-link link-body-emphasis px-2 active"
-                        aria-current="page">Home</a></li>
+                @if (Auth::user()->email === 'admin@admin.com')
+                    <li class="nav-item"><a href="{{ url('/admin') }}" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page">Admin</a></li>
+                @else
+                    <li class="nav-item"><a href="{{ url('/note') }}" class="nav-link link-body-emphasis px-2 active"
+                            aria-current="page">Home</a></li>
+                @endif
             @else
                 <li class="nav-item"><a href="{{ url('/') }}" class="nav-link link-body-emphasis px-2 active"
                         aria-current="page">Home</a></li>
             @endif
+
         </ul>
         <ul class="nav">
             @if (Auth::check())
